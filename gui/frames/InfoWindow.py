@@ -1,13 +1,15 @@
-from tkinter import Label, Button, Toplevel
+from tkinter import Label, Toplevel
+from ..panels.DeviceInfoPanel import DeviceInfoPanel
 
-class InfoWindow:
+class InfoWindow(Toplevel):
     def __init__(self, root):
-        dialog = Toplevel(root)
-        dialog.title("Dialog")
-        dialog.transient(root)  # Associate it with the main window
+        super().__init__(master=root)
+        self.title="Information"
+        self.transient=root
 
-        Label(dialog, text="Device Information").pack(padx=20, pady=10)
+        Label(self, text="Device Information").pack(padx=20, pady=10)
+        DeviceInfoPanel(self).pack(fill="both")
 
-        dialog.protocol("WM_DELETE_WINDOW", dialog.destroy)
-        dialog.wait_visibility()  # Wait until the dialog appears
-        dialog.grab_set()         # Block interaction with the main window
+        self.protocol("WM_DELETE_WINDOW", self.destroy)
+        self.wait_visibility()  # Wait until the dialog appears
+        self.grab_set()         # Block interaction with the main window

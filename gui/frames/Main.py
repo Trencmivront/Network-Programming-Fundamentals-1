@@ -4,6 +4,7 @@ from ..panels.MainButtonSetPanel import MainButtonSetPanel
 class Main(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.option_add("*Font", "Arial 16")  # family and size
         self.title("Project - 1")
         self.geometry("800x600")
 
