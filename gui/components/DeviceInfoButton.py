@@ -1,18 +1,25 @@
 from tkinter import Button
-from ..frames.InfoWindow import InfoWindow
+from logger import get_logger
+
+logger = get_logger("DeviceInfoButton")
+
 
 # Set of predefined classes for main menu buttons
 class DeviceInfoButton(Button):
-    """A button that opens a modal InfoWindow dialog when clicked, to display device information.
+    """A button that navigates to InfoPanel when clicked.
 
-    :param root: Container frame for the button.
+    :param master: Container frame for the button.
     """
     def __init__(self, master):
-            super().__init__(master, text="Device Info", width=20)
-            self.config(command=self.on_click)
-    
+        super().__init__(master, text="Device Info", width=20)
+        self.config(command=self.on_click)
+
     def on_click(self):
         try:
-            InfoWindow(self)
+            logger.info("DeviceInfoButton clicked - navigating to InfoPanel")
+            from ..panels.InfoPanel import InfoPanel
+            root = self.winfo_toplevel()
+            if hasattr(root, "switch_panel"):
+                root.switch_panel(InfoPanel)
         except Exception as error:
-            print(error)
+            logger.error(f"Error opening InfoPanel: {error}", exc_info=True)

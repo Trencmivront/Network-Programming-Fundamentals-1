@@ -1,0 +1,7 @@
+{
+    "echoTestHost": "localhost",
+    "echoTestPort": 8080,
+    "echoTestBacklog": 1,
+    "echoTestDataPayload": 2048,
+    "echoTestTimeout": 3.0
+}

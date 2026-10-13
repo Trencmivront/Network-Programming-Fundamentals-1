@@ -1,0 +1,277 @@
+[2026-10-13 10:41:04] [INFO] [App]: Application starting...
+[2026-10-13 10:41:04] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:04] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:41:06] [INFO] [ChatButton]: ChatButton clicked - navigating to ChatPanel
+[2026-10-13 10:41:06] [INFO] [Main]: Switching panel to ChatPanel
+[2026-10-13 10:41:06] [INFO] [ChatPanel]: Initializing ChatPanel
+[2026-10-13 10:41:07] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 10:41:07] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:07] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:41:08] [INFO] [SettingsButton]: SettingsButton clicked - navigating to SettingsPanel
+[2026-10-13 10:41:08] [INFO] [Main]: Switching panel to SettingsPanel
+[2026-10-13 10:41:08] [INFO] [SettingsPanel]: Initializing SettingsPanel
+[2026-10-13 10:41:09] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 10:41:09] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:09] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:41:09] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 10:41:21] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 10:41:21] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 10:41:21] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 10:41:24] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 10:41:24] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:24] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:41:26] [INFO] [RetrieveTimeButton]: RetrieveTimeButton clicked - navigating to RetrieveTimePanel
+[2026-10-13 10:41:26] [INFO] [Main]: Switching panel to RetrieveTimePanel
+[2026-10-13 10:41:26] [INFO] [RetrieveTimePanel]: Initializing RetrieveTimePanel
+[2026-10-13 10:41:32] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 10:41:32] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:32] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:41:34] [INFO] [SettingsButton]: SettingsButton clicked - navigating to SettingsPanel
+[2026-10-13 10:41:34] [INFO] [Main]: Switching panel to SettingsPanel
+[2026-10-13 10:41:34] [INFO] [SettingsPanel]: Initializing SettingsPanel
+[2026-10-13 10:41:34] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 10:41:34] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:41:34] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:53:37] [INFO] [App]: Application starting...
+[2026-10-13 10:53:37] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 10:53:37] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 10:53:39] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:01:25] [INFO] [App]: Application starting...
+[2026-10-13 11:01:25] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:01:25] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:01:26] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:02:45] [INFO] [App]: Application starting...
+[2026-10-13 11:02:45] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:02:45] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:02:46] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:07:18] [INFO] [App]: Application starting...
+[2026-10-13 11:07:19] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:07:19] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:07:20] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:08:37] [INFO] [App]: Application starting...
+[2026-10-13 11:08:37] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:08:37] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:08:39] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:08:54] [INFO] [App]: Application starting...
+[2026-10-13 11:08:54] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:08:54] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:08:54] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:08:55] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:08:59] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:00] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:00] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:00] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:01] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:01] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:01] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:01] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:09:06] [INFO] [App]: Application starting...
+[2026-10-13 11:09:06] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:09:06] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:09:07] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:17] [INFO] [App]: Application starting...
+[2026-10-13 11:12:17] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 11:12:17] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 11:12:18] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:22] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:22] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:23] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:23] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:23] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:24] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:24] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:25] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:25] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:25] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:26] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 11:12:26] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 12:54:10] [INFO] [App]: Application starting...
+[2026-10-13 12:54:10] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 12:54:10] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 12:54:12] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 12:54:12] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 12:54:12] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 12:54:13] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 12:54:13] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 12:54:13] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 12:54:22] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 12:54:22] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 12:54:22] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 12:54:24] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 12:54:24] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 12:54:24] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 12:54:25] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 12:54:25] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 12:54:25] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 12:54:26] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 12:54:26] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 12:54:26] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:42:53] [INFO] [App]: Application starting...
+[2026-10-13 13:42:53] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:42:53] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:42:55] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - opening InfoWindow dialog
+[2026-10-13 13:42:56] [INFO] [InfoWindow]: Destroying InfoWindow
+[2026-10-13 13:42:57] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:42:57] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:42:57] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:42:58] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:42:58] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:42:58] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:42:59] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:43:02] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:43:05] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:43:06] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:43:06] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:43:06] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:43:08] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:43:10] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:43:10] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:43:10] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:43:18] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:43:18] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:43:18] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:43:19] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:43:19] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:43:19] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:43:19] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:43:21] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:43:21] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:43:21] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:43:22] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:43:29] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:43:29] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:43:29] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:43:36] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:43:36] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:43:36] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:43:37] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:43:37] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:43:37] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:44:02] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:44:02] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:44:02] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:44:03] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:44:03] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:44:03] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:44:03] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:44:06] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:44:09] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:44:12] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:44:15] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:44:18] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:44:20] [INFO] [EchoServerTest]: Data: b'Test message. This will be echoed'
+[2026-10-13 13:44:20] [INFO] [EchoServerTest]: sent b'Test message. This will be echoed' bytes back to ('127.0.0.1', 49916)
+[2026-10-13 13:44:47] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:44:47] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:44:47] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:44:52] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:44:52] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:44:52] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:21] [INFO] [App]: Application starting...
+[2026-10-13 13:50:21] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:21] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:23] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - navigating to InfoPanel
+[2026-10-13 13:50:23] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-13 13:50:23] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-13 13:50:26] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:26] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:26] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:29] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:50:29] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:29] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:30] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:50:30] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:50:30] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:50:30] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:50:31] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:50:31] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:31] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:31] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:50:31] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:50:31] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:50:31] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:50:32] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:50:32] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:32] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:33] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:33] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:33] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:33] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:50:33] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - navigating to InfoPanel
+[2026-10-13 13:50:33] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-13 13:50:33] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-13 13:50:37] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:37] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:37] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:38] [INFO] [ChatButton]: ChatButton clicked - navigating to ChatPanel
+[2026-10-13 13:50:38] [INFO] [Main]: Switching panel to ChatPanel
+[2026-10-13 13:50:38] [INFO] [ChatPanel]: Initializing ChatPanel
+[2026-10-13 13:50:39] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:39] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:39] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:40] [INFO] [RetrieveTimeButton]: RetrieveTimeButton clicked - navigating to RetrieveTimePanel
+[2026-10-13 13:50:40] [INFO] [Main]: Switching panel to RetrieveTimePanel
+[2026-10-13 13:50:40] [INFO] [RetrieveTimePanel]: Initializing RetrieveTimePanel
+[2026-10-13 13:50:41] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:41] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:41] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:41] [INFO] [ChatButton]: ChatButton clicked - navigating to ChatPanel
+[2026-10-13 13:50:41] [INFO] [Main]: Switching panel to ChatPanel
+[2026-10-13 13:50:41] [INFO] [ChatPanel]: Initializing ChatPanel
+[2026-10-13 13:50:42] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:42] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:42] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:44] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:50:44] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:44] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:45] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:45] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:45] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:46] [INFO] [RetrieveTimeButton]: RetrieveTimeButton clicked - navigating to RetrieveTimePanel
+[2026-10-13 13:50:46] [INFO] [Main]: Switching panel to RetrieveTimePanel
+[2026-10-13 13:50:46] [INFO] [RetrieveTimePanel]: Initializing RetrieveTimePanel
+[2026-10-13 13:50:47] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:47] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:47] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:49] [INFO] [DeviceInfoButton]: DeviceInfoButton clicked - navigating to InfoPanel
+[2026-10-13 13:50:49] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-13 13:50:49] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-13 13:50:50] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:50] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:50] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:51] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:50:51] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:51] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:51] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:51] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:51] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:52] [INFO] [RetrieveTimeButton]: RetrieveTimeButton clicked - navigating to RetrieveTimePanel
+[2026-10-13 13:50:52] [INFO] [Main]: Switching panel to RetrieveTimePanel
+[2026-10-13 13:50:52] [INFO] [RetrieveTimePanel]: Initializing RetrieveTimePanel
+[2026-10-13 13:50:54] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:50:54] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:50:54] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:50:54] [INFO] [EchoTestButton]: EchoTestButton clicked - navigating to EchoPanel
+[2026-10-13 13:50:54] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:50:54] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:50:55] [INFO] [EchoPanel]: EchoPanel: Server button clicked - navigating to EchoServerTestPanel
+[2026-10-13 13:50:55] [INFO] [Main]: Switching panel to EchoServerTestPanel
+[2026-10-13 13:50:55] [INFO] [EchoServerTestPanel]: Initializing EchoServerTestPanel
+[2026-10-13 13:50:55] [INFO] [EchoServerTest]: Starting up echo server on localhost port 8080
+[2026-10-13 13:50:58] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:51:01] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:51:04] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:51:07] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:51:08] [INFO] [EchoServerTestPanel]: EchoServerTestPanel: Back button clicked - returning to EchoPanel
+[2026-10-13 13:51:08] [INFO] [Main]: Switching panel to EchoPanel
+[2026-10-13 13:51:08] [INFO] [EchoPanel]: Initializing EchoPanel
+[2026-10-13 13:51:09] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:51:09] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:51:09] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-13 13:51:10] [WARNING] [EchoServerTest]: Socket timeout, restarting...
+[2026-10-13 13:51:11] [INFO] [SettingsButton]: SettingsButton clicked - navigating to SettingsPanel
+[2026-10-13 13:51:11] [INFO] [Main]: Switching panel to SettingsPanel
+[2026-10-13 13:51:11] [INFO] [SettingsPanel]: Initializing SettingsPanel
+[2026-10-13 13:51:12] [INFO] [BackButton]: Back button clicked - returning to main panel
+[2026-10-13 13:51:12] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-13 13:51:12] [INFO] [Main]: Switching panel to MainButtonSetPanel
