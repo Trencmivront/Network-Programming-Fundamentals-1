@@ -7,19 +7,19 @@ import json
 
 # Settings can be configured from UI or file itself
 
-SETTINGS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "settings.json")
-
 echoTestHost = ""
 echoTestDataPayload = 0
 echoTestBacklog = 1
 echoTestPort = 0
 echoTestTimeout = 0.0
 
-
 def cache():
     """Reads settings from settings.json and caches them into global variables."""
     global echoTestHost, echoTestPort, echoTestBacklog, echoTestDataPayload, echoTestTimeout
     try:
+        # load file as object
+        SETTINGS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "settings.json")
+        # open file and read from it
         with open(SETTINGS_FILE, "r") as file:
             settings = json.load(file)
             # Host name. Default is localhost
@@ -91,11 +91,12 @@ def set(
                 "echoTestDataPayload": echoTestDataPayload,
                 "echoTestTimeout": echoTestTimeout,
             }
+
+            SETTINGS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "settings.json")
             with open(SETTINGS_FILE, "w") as file:
                 json.dump(data, file, indent=4)
         except Exception as error:
             print(f"Error persisting settings to file: {error}")
-
 
 # Load initial cached settings on import
 cache()

@@ -20,3 +20,106 @@ Traceback (most recent call last):
     Label(hostFrame, text=self.hostname).pack(side="left")
                           ^^^^^^^^^^^^^
 AttributeError: 'DeviceInfoPanel' object has no attribute 'hostname'
+[2026-10-14 20:30:51] [ERROR] [Main]: Error switching panel to EchoClientTestPanel: unknown option "-placeholder"
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/frames/Main.py", line 30, in switch_panel
+    self.current_panel = panel_class(self, *args, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 42, in __init__
+    self.hostname_entry = Entry(self.inputs_frame, textvariable=hostname_var, placeholder="hostname")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 3124, in __init__
+    Widget.__init__(self, master, 'entry', cnf, kw)
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 2648, in __init__
+    self.tk.call(
+_tkinter.TclError: unknown option "-placeholder"
+[2026-10-14 21:57:10] [ERROR] [Main]: Error switching panel to EchoClientTestPanel: object of type 'int' has no len()
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/frames/Main.py", line 30, in switch_panel
+    self.current_panel = panel_class(self, *args, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 47, in __init__
+    self.port_entry.pack(5)
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 2474, in pack_configure
+    + self._options(cnf, kw))
+      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 1548, in _options
+    cnf = _cnfmerge(cnf)
+          ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 110, in _cnfmerge
+    for c in _flatten(cnfs):
+             ^^^^^^^^^^^^^^
+TypeError: object of type 'int' has no len()
+[2026-10-14 21:59:25] [ERROR] [Main]: Error switching panel to EchoClientTestPanel: object of type 'int' has no len()
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/frames/Main.py", line 30, in switch_panel
+    self.current_panel = panel_class(self, *args, **kwargs)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 47, in __init__
+    self.port_entry.pack(5)
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 2474, in pack_configure
+    + self._options(cnf, kw))
+      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 1548, in _options
+    cnf = _cnfmerge(cnf)
+          ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/tkinter/__init__.py", line 110, in _cnfmerge
+    for c in _flatten(cnfs):
+             ^^^^^^^^^^^^^^
+TypeError: object of type 'int' has no len()
+[2026-10-14 22:05:49] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:50] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:51] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:51] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:54] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:55] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:05:55] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'
+[2026-10-14 22:06:01] [ERROR] [EchoClientTestPanel]: Error navigating back to EchoPanel: Misc.setvar() got an unexpected keyword argument 'state'
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 145, in on_back
+    self.stop_timer()
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/EchoClientTestPanel.py", line 115, in stop_timer
+    self.send_button.setvar(state="enabled")
+TypeError: Misc.setvar() got an unexpected keyword argument 'state'

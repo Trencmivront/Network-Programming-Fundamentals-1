@@ -5,7 +5,6 @@ import threading
 
 logger = get_logger("EchoServerTestPanel")
 
-
 class EchoServerTestPanel(Frame):
     def __init__(self, root):
         super().__init__(root, padx=20, pady=20)
@@ -14,6 +13,7 @@ class EchoServerTestPanel(Frame):
         self.seconds_elapsed = 0
         self.timer_running = False
         self._timer_job = None
+        # This boolean condition used in echo_server function to check when to stop the function
         self.isThreadRunning = False
         # Initializing the backgroun daemon for running server
         self.thread = threading.Thread(target=echo_server, args=(self.on_data, self.is_thread_running), daemon=True)
@@ -63,7 +63,7 @@ class EchoServerTestPanel(Frame):
             self.isThreadRunning = True
             self.thread.start()
         except Exception as error:
-            logger.error("Error while echo server test daemon: %s", error)
+            logger.error("Error for echo server test daemon: %s", error)
 
     def start_timer(self):
         """Starts the uptime counter."""
@@ -73,7 +73,7 @@ class EchoServerTestPanel(Frame):
 
     def stop_timer(self):
         """Stops the uptime counter and cancels any scheduled after callbacks."""
-        """ Also stops the thread along"""
+        """ Also sets the thread state to stopped"""
         self.timer_running = False
         self.isThreadRunning = False
         if self._timer_job:
@@ -117,8 +117,12 @@ class EchoServerTestPanel(Frame):
         super().destroy()
 
     def on_data(self, data):
+        """ Decodes and displays data sent from client"""
         # decode the returned data from server
         text = data.decode("utf-8", errors="replace") if isinstance(data, bytes) else str(data)
+        # Display the data on UI
         self.after(0, self.display_received_data, text)
+
     def is_thread_running(self):
+        """Returns the current state of thread"""
         return self.isThreadRunning

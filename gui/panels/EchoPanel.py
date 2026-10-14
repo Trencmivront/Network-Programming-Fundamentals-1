@@ -24,7 +24,7 @@ class EchoPanel(Frame):
         )
         self.server_button.pack(side="left", padx=10)
 
-        self.client_button = Button(self.role_button_frame, text="Client", width=12)
+        self.client_button = Button(self.role_button_frame, text="Client", width=12, command=self.open_client_panel)
         self.client_button.pack(side="left", padx=10)
 
         # Back button to return to main panel
@@ -33,10 +33,20 @@ class EchoPanel(Frame):
 
     def open_server_panel(self):
         try:
-            logger.info("EchoPanel: Server button clicked - navigating to EchoServerTestPanel")
+            logger.info("Opening server panel.")
             from .EchoServerTestPanel import EchoServerTestPanel
             root = self.winfo_toplevel()
             if hasattr(root, "switch_panel"):
                 root.switch_panel(EchoServerTestPanel)
         except Exception as error:
             logger.error(f"Error opening EchoServerTestPanel: {error}", exc_info=True)
+
+    def open_client_panel(self):
+        try:
+            logger.info("Opening client panel.")
+            from .EchoClientTestPanel import EchoClientTestPanel
+            root = self.winfo_toplevel()
+            if hasattr(root, "switch_panel"):
+                root.switch_panel(EchoClientTestPanel)
+        except Exception as error:
+            logger.error(f"Error opening EchoClientTestPanel: {error}", exc_info=True)
