@@ -1,6 +1,6 @@
 from tkinter import Frame, Label
 from ..components.BackButton import BackButton
-from logic.DeviceInfo import hostname, ipAddress, networkInterfaces
+from logic.DeviceInfo import DeviceInfo
 from logger import get_logger
 
 logger = get_logger("InfoPanel")
@@ -11,6 +11,9 @@ class InfoPanel(Frame):
     def __init__(self, root):
         super().__init__(root, padx=30, pady=25)
         logger.info("Initializing InfoPanel")
+
+        # initialize our logic class
+        info = DeviceInfo()
 
         # Header Title
         self.title_label = Label(
@@ -33,9 +36,9 @@ class InfoPanel(Frame):
         self.card_frame.pack(fill="x", padx=10, pady=10)
 
         # Device info rows
-        self._add_info_row("Hostname:", hostname)
-        self._add_info_row("IP Address:", ipAddress)
-        self._add_info_row("Network Interfaces:", networkInterfaces)
+        self._add_info_row("Hostname:", info.hostname)
+        self._add_info_row("IP Address:", info.ipAddress)
+        self._add_info_row("Network Interfaces:", info.networkInterfaces)
 
         # Back Button to return to main menu panel
         self.back_button = BackButton(self)

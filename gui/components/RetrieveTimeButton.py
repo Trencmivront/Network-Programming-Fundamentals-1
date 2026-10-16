@@ -3,7 +3,6 @@ from logger import get_logger
 
 logger = get_logger("RetrieveTimeButton")
 
-
 class RetrieveTimeButton(Button):
     def __init__(self, master):
         super().__init__(master, text="Retrieve Current Time", width=20)

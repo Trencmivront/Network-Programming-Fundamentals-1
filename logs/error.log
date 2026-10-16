@@ -254,3 +254,10 @@ Traceback (most recent call last):
     self.timestamp = ctime(response.tx_time)
                            ^^^^^^^^
 UnboundLocalError: cannot access local variable 'response' where it is not associated with a value
+[2026-10-16 16:59:18] [ERROR] [DeviceInfoButton]: Error opening InfoPanel: cannot import name 'hostname' from 'logic.DeviceInfo' (/home/trencmivront/Desktop/NP_PROJECT_1/logic/DeviceInfo.py)
+Traceback (most recent call last):
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/components/DeviceInfoButton.py", line 20, in on_click
+    from ..panels.InfoPanel import InfoPanel
+  File "/home/trencmivront/Desktop/NP_PROJECT_1/gui/panels/InfoPanel.py", line 3, in <module>
+    from logic.DeviceInfo import hostname, ipAddress, networkInterfaces
+ImportError: cannot import name 'hostname' from 'logic.DeviceInfo' (/home/trencmivront/Desktop/NP_PROJECT_1/logic/DeviceInfo.py)

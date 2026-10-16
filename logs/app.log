@@ -1157,3 +1157,44 @@
 [2026-10-16 16:53:00] [INFO] [RetrieveTimePanel]: Initializing RetrieveTimePanel
 [2026-10-16 16:53:00] [INFO] [SNTP]: Time taken from pool.ntp.org server : Fri Oct 16 16:53:00 2026
 [2026-10-16 16:53:00] [INFO] [Main]: Panel RetrieveTimePanel loaded
+[2026-10-16 16:59:17] [INFO] [App]: Application starting...
+[2026-10-16 16:59:17] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 16:59:17] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 16:59:17] [INFO] [Main]: Panel MainButtonSetPanel loaded
+[2026-10-16 16:59:18] [INFO] [DeviceInfoButton]: Loading
+[2026-10-16 17:03:33] [INFO] [App]: Application starting...
+[2026-10-16 17:03:33] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 17:03:33] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 17:03:34] [INFO] [Main]: Panel MainButtonSetPanel loaded
+[2026-10-16 17:03:35] [INFO] [DeviceInfoButton]: Loading
+[2026-10-16 17:03:35] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-16 17:03:35] [INFO] [DeviceInfoButton]: Loaded
+[2026-10-16 17:03:35] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-16 17:03:35] [INFO] [Main]: Panel InfoPanel loaded
+[2026-10-16 17:03:38] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 17:03:38] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 17:03:38] [INFO] [Main]: Panel MainButtonSetPanel loaded
+[2026-10-16 17:03:38] [INFO] [DeviceInfoButton]: Loading
+[2026-10-16 17:03:38] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-16 17:03:38] [INFO] [DeviceInfoButton]: Loaded
+[2026-10-16 17:03:38] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-16 17:03:38] [INFO] [Main]: Panel InfoPanel loaded
+[2026-10-16 17:03:39] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 17:03:39] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 17:03:39] [INFO] [Main]: Panel MainButtonSetPanel loaded
+[2026-10-16 17:03:40] [INFO] [DeviceInfoButton]: Loading
+[2026-10-16 17:03:40] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-16 17:03:40] [INFO] [DeviceInfoButton]: Loaded
+[2026-10-16 17:03:40] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-16 17:03:40] [INFO] [Main]: Panel InfoPanel loaded
+[2026-10-16 17:03:43] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 17:03:43] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 17:03:43] [INFO] [Main]: Panel MainButtonSetPanel loaded
+[2026-10-16 17:03:44] [INFO] [DeviceInfoButton]: Loading
+[2026-10-16 17:03:44] [INFO] [Main]: Switching panel to InfoPanel
+[2026-10-16 17:03:44] [INFO] [DeviceInfoButton]: Loaded
+[2026-10-16 17:03:44] [INFO] [InfoPanel]: Initializing InfoPanel
+[2026-10-16 17:03:44] [INFO] [Main]: Panel InfoPanel loaded
+[2026-10-16 17:03:48] [INFO] [Main]: Switching to MainButtonSetPanel
+[2026-10-16 17:03:48] [INFO] [Main]: Switching panel to MainButtonSetPanel
+[2026-10-16 17:03:48] [INFO] [Main]: Panel MainButtonSetPanel loaded
