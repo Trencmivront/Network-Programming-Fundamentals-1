@@ -1,6 +1,6 @@
 import socket
 
-from logic.Settings import echoTestHost, echoTestBacklog, echoTestDataPayload, echoTestPort, echoTestTimeout
+from logic.Settings import echoServerHost, echoServerBacklog, echoServerDataPayload, echoServerPort, echoTestTimeout
 
 from logger import get_logger
 
@@ -14,11 +14,11 @@ def echo_server(on_data, is_thread_running):
     # Enable reuse address/port
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     # Bind the socket to the port
-    server_address = (echoTestHost, echoTestPort)
+    server_address = (echoServerHost, echoServerPort)
     logger.info("Starting up echo server on %s port %s" % server_address)
     sock.bind(server_address)
-    # Listen to clients, echoTestBacklog argument specifies the max no. of queued connections
-    sock.listen(echoTestBacklog)
+    # Listen to clients, echoServerBacklog argument specifies the max no. of queued connections
+    sock.listen(echoServerBacklog)
     # restart loop after some time
     sock.settimeout(echoTestTimeout)
 
@@ -34,7 +34,7 @@ def echo_server(on_data, is_thread_running):
             break
         client.settimeout(echoTestTimeout)
         try:
-            data = client.recv(echoTestDataPayload)
+            data = client.recv(echoServerDataPayload)
             if data:
                 logger.info("Data: %s" %data)
                 client.send(data)
@@ -48,5 +48,3 @@ def echo_server(on_data, is_thread_running):
             logger.warning("Client timeout, restarting...")
         except Exception as error:
             logger.error("AAAAAAAAAA: %s", error)
-
-# python 13-server-tcp.py --port=9900

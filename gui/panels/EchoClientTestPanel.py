@@ -1,4 +1,5 @@
 from tkinter import Frame, Label, Button, Text, Scrollbar, Entry, StringVar, IntVar,  END
+from time import ctime
 from logger import get_logger
 from logic.EchoClientTest import EchoClientTest
 import threading
@@ -73,10 +74,16 @@ class EchoClientTestPanel(Frame):
         self.back_button.pack(pady=(15, 0))
 
     def start_client(self, host, port, message):
+        # set the message globally to check later
+        self.message = message
         # Initialize client object
-        client = EchoClientTest(host=host, port=int(port))
-        if(client is None):
-            logger.error("Could not initialize the client.")
+        try:
+            client = EchoClientTest(host=host, port=int(port))
+            if(client is None):
+                logger.error("Could not initialize the client.")
+                return
+        except Exception as e:
+            logger.error("Echo client initializing error %s", e)
             return
         # Initializing the backgroun daemon for running server
         self.thread = threading.Thread(target=client.send_message, args=(message, self.on_data, self.is_thread_running), daemon=True)
@@ -93,9 +100,13 @@ class EchoClientTestPanel(Frame):
 
     def display_received_data(self, data_str):
         """Method to display received data on the panel."""
-        self.stop_thread()
+        # checking if returned data is the same
+        match = "(not match)"
+        if(data_str == self.message):
+            match = "(match)"
+            
         self.data_display.config(state="normal")
-        self.data_display.insert(END, f"{data_str}\n")
+        self.data_display.insert(END, f"{ctime() + " " + match +":" +  data_str}\n")
         self.data_display.see(END)
         self.data_display.config(state="disabled")
 

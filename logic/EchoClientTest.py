@@ -7,11 +7,8 @@ logger = get_logger("EchoClientTest")
 
 class EchoClientTest():
     """ A simple echo client test """
-    # values are taken manually, not from settings file
-    # defaults are below
-    host = 'localhost'
-    port = 8080
 
+    # values are taken manually, not from settings file
     def __init__(self, host, port):
         # Create a TCP/IP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +30,7 @@ class EchoClientTest():
             # Look for the response
             amount_received = 0
             amount_expected = len(message)
-            while amount_received < amount_expected and isThreadRunning:
+            while (amount_received < amount_expected) and isThreadRunning:
                 data = self.sock.recv(16)
                 amount_received += len(data)
                 on_data(data)

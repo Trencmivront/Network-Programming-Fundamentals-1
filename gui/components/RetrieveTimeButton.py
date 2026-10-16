@@ -11,7 +11,6 @@ class RetrieveTimeButton(Button):
 
     def on_click(self):
         try:
-            logger.info("RetrieveTimeButton clicked - navigating to RetrieveTimePanel")
             from ..panels.RetrieveTimePanel import RetrieveTimePanel
             root = self.winfo_toplevel()
             if hasattr(root, "switch_panel"):

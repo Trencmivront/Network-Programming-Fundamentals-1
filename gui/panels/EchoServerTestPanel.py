@@ -1,5 +1,6 @@
 from tkinter import Frame, Label, Button, Text, Scrollbar, END
 from logger import get_logger
+from time import ctime
 from logic.EchoServerTest import echo_server
 import threading
 
@@ -93,9 +94,8 @@ class EchoServerTestPanel(Frame):
 
     def display_received_data(self, data_str):
         """Method to display received data on the panel."""
-        self.stop_timer()
         self.data_display.config(state="normal")
-        self.data_display.insert(END, f"{data_str}\n")
+        self.data_display.insert(END, f"{ctime() + " :" +  data_str}\n")
         self.data_display.see(END)
         self.data_display.config(state="disabled")
 

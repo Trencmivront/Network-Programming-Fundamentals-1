@@ -11,7 +11,6 @@ class EchoTestButton(Button):
 
     def on_click(self):
         try:
-            logger.info("EchoTestButton clicked - navigating to EchoPanel")
             from ..panels.EchoPanel import EchoPanel
             root = self.winfo_toplevel()
             if hasattr(root, "switch_panel"):

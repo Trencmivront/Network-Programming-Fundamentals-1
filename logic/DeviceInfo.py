@@ -1,8 +1,26 @@
-from socket import gethostname, gethostbyname
-from netifaces import interfaces
+from socket import gethostname                                                                                                                                                 
+import netifaces                                                                                                                                                               
 
-hostname = gethostname()
-ipAddress = gethostbyname(hostname)
-# tagging this as private. Only is a warning
-_interfaces = interfaces()
-networkInterfaces = " ".join(_interfaces)
+class DeviceInfo:
+    def __init__(self):
+        # get the current hostname
+        self.hostname = gethostname()
+        # Get network interfaces
+        self._interfaces = netifaces.interfaces()
+        # Put each in new line for better look
+        self.networkInterfaces = "\n".join(self._interfaces)
+    
+        # All IPv4 addresses from all interfaces
+        # Getting ip addresses from interfaces is faster than using getbyhostname
+        # because getbyhostname queries the hosts file in computer
+        ip_list = []
+        for iface in self._interfaces:
+            addrs = netifaces.ifaddresses(iface)
+            if netifaces.AF_INET in addrs:
+                # Gather ip addresses next to it's interface in an array
+                for addr_info in addrs[netifaces.AF_INET]:
+                    ip_list.append(f"{iface}: {addr_info['addr']}")
+    
+        # Concat the string array having new line between them so they will look like stacked
+        self.ipAddress = "\n".join(ip_list)
+

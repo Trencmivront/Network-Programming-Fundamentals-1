@@ -12,7 +12,6 @@ class BackButton(Button):
 
     def on_click(self):
         try:
-            logger.info("Back button clicked - returning to main panel")
             root = self.winfo_toplevel()
             if hasattr(root, "show_main_panel"):
                 root.show_main_panel()

@@ -16,10 +16,11 @@ class DeviceInfoButton(Button):
 
     def on_click(self):
         try:
-            logger.info("DeviceInfoButton clicked - navigating to InfoPanel")
+            logger.info("Loading")
             from ..panels.InfoPanel import InfoPanel
             root = self.winfo_toplevel()
             if hasattr(root, "switch_panel"):
                 root.switch_panel(InfoPanel)
+                logger.info("Loaded")
         except Exception as error:
             logger.error(f"Error opening InfoPanel: {error}", exc_info=True)

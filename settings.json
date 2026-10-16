@@ -1,7 +1,11 @@
 {
-    "echoTestHost": "localhost",
-    "echoTestPort": 8080,
-    "echoTestBacklog": 1,
-    "echoTestDataPayload": 2048,
-    "echoTestTimeout": 3.0
+    "echoServerHost": "localhost",
+    "echoServerPort": 8080,
+    "echoServerBacklog": 1,
+    "echoServerDataPayload": 2048,
+    "echoTestTimeout": 3.0,
+    "echoClientPayloadCount": 1,
+    "ntpURL": "pool.ntp.org",
+    "logging": true,
+    "debugging": false
 }
