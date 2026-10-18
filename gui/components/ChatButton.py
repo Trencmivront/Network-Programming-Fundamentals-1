@@ -1,5 +1,6 @@
 from tkinter import Button
 from logger import get_logger
+import logic.WindowHandler as WindowHandler
 
 logger = get_logger("ChatButton")
 
@@ -13,7 +14,6 @@ class ChatButton(Button):
         try:
             from ..panels.ChatPanel import ChatPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(ChatPanel)
+            WindowHandler.switch_panel(root, ChatPanel)
         except Exception as error:
             logger.error(f"Error opening ChatPanel: {error}", exc_info=True)

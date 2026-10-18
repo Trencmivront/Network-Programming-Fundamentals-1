@@ -13,6 +13,8 @@ os.makedirs(LOG_DIR, exist_ok=True)
 APP_LOG_FILE = os.path.join(LOG_DIR, "app.log")
 ERROR_LOG_FILE = os.path.join(LOG_DIR, "error.log")
 
+# check if logging is enabled or not
+loggingEnabled = True
 
 class AppLogsFilter(logging.Filter):
     """Filter that allows only non-error log records (DEBUG, INFO, WARNING)."""
@@ -20,6 +22,8 @@ class AppLogsFilter(logging.Filter):
         return record.levelno < logging.ERROR
 
 _configured = False
+_app_handler = None
+_error_handler = None
 
 def setup_logging():
     """Configures the logging system with separated app and error logs.
@@ -28,7 +32,7 @@ def setup_logging():
     This makes easier to read application errors when needed and if there are any.
     """
 
-    global _configured
+    global _configured, _app_handler, _error_handler
     if _configured:
         return
     _configured = True
@@ -43,29 +47,45 @@ def setup_logging():
     root_logger.setLevel(logging.DEBUG)
 
     # File handler for app logs (DEBUG, INFO, WARNING only)
-    app_handler = RotatingFileHandler(
+    _app_handler = RotatingFileHandler(
         APP_LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=3, encoding="utf-8"
     )
-    app_handler.setLevel(logging.INFO)
+    _app_handler.setLevel(logging.INFO if loggingEnabled else logging.CRITICAL + 1)
     # Filter for app_handler because it won't write error logs.
-    app_handler.addFilter(AppLogsFilter())
-    app_handler.setFormatter(formatter)
+    _app_handler.addFilter(AppLogsFilter())
+    _app_handler.setFormatter(formatter)
     # Adding log handler object. It writes logs into selected file.
-    root_logger.addHandler(app_handler)
+    root_logger.addHandler(_app_handler)
 
     # File handler for error logs (ERROR and CRITICAL only)
-    error_handler = RotatingFileHandler(
+    _error_handler = RotatingFileHandler(
         ERROR_LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=3, encoding="utf-8"
     )
-    error_handler.setLevel(logging.ERROR)
-    error_handler.setFormatter(formatter)
-    root_logger.addHandler(error_handler)
+    _error_handler.setLevel(logging.ERROR if loggingEnabled else logging.CRITICAL + 1)
+    _error_handler.setFormatter(formatter)
+    root_logger.addHandler(_error_handler)
 
     # Stream handler for console output
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
     root_logger.addHandler(console_handler)
+
+
+def set_file_logging(enabled: bool):
+    """Enable or disable writing to log files by adjusting log levels."""
+    global loggingEnabled
+    loggingEnabled = bool(enabled)
+    setup_logging()
+    if _app_handler and _error_handler:
+        if loggingEnabled:
+            # Start file outputs
+            _app_handler.setLevel(logging.INFO)
+            _error_handler.setLevel(logging.ERROR)
+        else:
+            # Setting level above CRITICAL stops all file output
+            _app_handler.setLevel(logging.CRITICAL + 1)
+            _error_handler.setLevel(logging.CRITICAL + 1)
 
 
 def get_logger(name=None):

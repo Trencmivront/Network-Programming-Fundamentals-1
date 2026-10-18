@@ -5,15 +5,19 @@ from logger import get_logger
 
 logger = get_logger("InfoPanel")
 
-
 class InfoPanel(Frame):
     """Panel displaying device information with styled cards and Back button navigation."""
     def __init__(self, root):
         super().__init__(root, padx=30, pady=25)
         logger.info("Initializing InfoPanel")
 
-        # initialize our logic class
-        info = DeviceInfo()
+        try:
+            # initialize our logic class
+            # We check if it is initialized properly
+            info = DeviceInfo()
+        except Exception as e:
+            self.destroy()
+            return
 
         # Header Title
         self.title_label = Label(

@@ -1,5 +1,6 @@
 from tkinter import Button
 from logger import get_logger
+import logic.WindowHandler as WindowHandler
 
 logger = get_logger("EchoTestButton")
 
@@ -13,7 +14,6 @@ class EchoTestButton(Button):
         try:
             from ..panels.EchoPanel import EchoPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(EchoPanel)
+            WindowHandler.switch_panel(root, EchoPanel)
         except Exception as error:
             logger.error(f"Error opening EchoPanel: {error}", exc_info=True)

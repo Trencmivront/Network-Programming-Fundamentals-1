@@ -13,8 +13,11 @@ class RetrieveTimePanel(Frame):
         logger.info("Initializing RetrieveTimePanel")
 
         local_time = ctime()
-        sntp = SNTP()
-        if(sntp is None):
+        try:
+            sntp = SNTP()
+        except Exception as e:
+            # exit from function if exception occours
+            self.destroy()
             return
         server_time = sntp.timestamp
 

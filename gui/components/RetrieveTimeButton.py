@@ -1,5 +1,6 @@
 from tkinter import Button
 from logger import get_logger
+import logic.WindowHandler as WindowHandler
 
 logger = get_logger("RetrieveTimeButton")
 
@@ -12,7 +13,6 @@ class RetrieveTimeButton(Button):
         try:
             from ..panels.RetrieveTimePanel import RetrieveTimePanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(RetrieveTimePanel)
+            WindowHandler.switch_panel(root, RetrieveTimePanel)
         except Exception as error:
             logger.error(f"Error opening RetrieveTimePanel: {error}", exc_info=True)

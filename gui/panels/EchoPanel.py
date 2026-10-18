@@ -1,9 +1,8 @@
 from tkinter import Frame, Label, Button
 from ..components.BackButton import BackButton
 from logger import get_logger
-
+from logic.WindowHandler import switch_panel
 logger = get_logger("EchoPanel")
-
 
 class EchoPanel(Frame):
     def __init__(self, root):
@@ -31,13 +30,13 @@ class EchoPanel(Frame):
         self.back_button = BackButton(self)
         self.back_button.pack(pady=(25, 10))
 
+    # buttons to handle picking choice
     def open_server_panel(self):
         try:
             logger.info("Opening server panel.")
             from .EchoServerTestPanel import EchoServerTestPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(EchoServerTestPanel)
+            switch_panel(root, EchoServerTestPanel)
         except Exception as error:
             logger.error(f"Error opening EchoServerTestPanel: {error}", exc_info=True)
 
@@ -46,7 +45,6 @@ class EchoPanel(Frame):
             logger.info("Opening client panel.")
             from .EchoClientTestPanel import EchoClientTestPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(EchoClientTestPanel)
+            switch_panel(root, EchoClientTestPanel)
         except Exception as error:
             logger.error(f"Error opening EchoClientTestPanel: {error}", exc_info=True)

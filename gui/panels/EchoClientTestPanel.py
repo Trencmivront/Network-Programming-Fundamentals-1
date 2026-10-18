@@ -2,6 +2,7 @@ from tkinter import Frame, Label, Button, Text, Scrollbar, Entry, StringVar, Int
 from time import ctime
 from logger import get_logger
 from logic.EchoClientTest import EchoClientTest
+from ..components.BackButton import BackButton
 import threading
 logger = get_logger("EchoClientTestPanel")
 
@@ -24,28 +25,37 @@ class EchoClientTestPanel(Frame):
         self.inputs_frame = Frame(self)
         self.inputs_frame.pack(fill="both", expand=False, pady=5)
 
-        hostname_var = StringVar
-        port_var = IntVar
-        message_var = StringVar
-        # TODO: create label or placeholder for input fields
+        self.hostname_var = StringVar()
+        self.port_var = StringVar()
+        self.message_var = StringVar()
+
         # Hostname entry
-        self.hostname_entry = Entry(self.inputs_frame, textvariable=hostname_var)
-        self.hostname_entry.pack(pady=5)
+        self.hostname_row = Frame(self.inputs_frame)
+        self.hostname_row.pack(fill="x", pady=3)
+        Label(self.hostname_row, text="Hostname:", font=("Arial", 11, "bold"), width=10, anchor="w").pack(side="left")
+        self.hostname_entry = Entry(self.inputs_frame, textvariable=self.hostname_var)
+        self.hostname_entry.pack(in_=self.hostname_row, side="left", fill="x", expand=True)
 
         # Port number entry
-        self.port_entry = Entry(self.inputs_frame, textvariable=port_var)
-        self.port_entry.pack(pady=5)
+        self.port_row = Frame(self.inputs_frame)
+        self.port_row.pack(fill="x", pady=3)
+        Label(self.port_row, text="Port:", font=("Arial", 11, "bold"), width=10, anchor="w").pack(side="left")
+        self.port_entry = Entry(self.inputs_frame, textvariable=self.port_var)
+        self.port_entry.pack(in_=self.port_row, side="left", fill="x", expand=True)
 
         # Message entry
-        self.message_entry = Entry(self.inputs_frame, textvariable=message_var)
-        self.message_entry.pack(pady=5)
+        self.message_row = Frame(self.inputs_frame)
+        self.message_row.pack(fill="x", pady=3)
+        Label(self.message_row, text="Message:", font=("Arial", 11, "bold"), width=10, anchor="w").pack(side="left")
+        self.message_entry = Entry(self.inputs_frame, textvariable=self.message_var)
+        self.message_entry.pack(in_=self.message_row, side="left", fill="x", expand=True)
 
         # Button to send with values
-        self.send_button = Button(self.inputs_frame, text="Send",
+        self.send_button = Button(self.inputs_frame, text="Send", width=10,
                                   command=lambda: self.start_client(self.hostname_entry.get(),
                                                             self.port_entry.get(),
                                                             self.message_entry.get()))
-        self.send_button.pack(pady=5)
+        self.send_button.pack(pady=8)
         # Received data display section
         self.data_section_label = Label(self, text="Received Data:", font=("Arial", 14, "bold"))
         self.data_section_label.pack(anchor="w", pady=(15, 5))
@@ -65,13 +75,17 @@ class EchoClientTestPanel(Frame):
             font=("Arial", 12),
             state="disabled"
         )
+        self.data_display.tag_config("match", foreground="green")
+        self.data_display.tag_config("not_match", foreground="red")
 
         self.data_display.pack(side="left", fill="both", expand=True)
         self.scrollbar.config(command=self.data_display.yview)
-        
-        # Back button to return specifically to EchoPanel
-        self.back_button = Button(self, text="Back", width=15, command=self.on_back)
+
+        # Stop the running thread before changing panel
+        self.back_button = BackButton(self)
+        self.back_button.config(command=lambda: (self.stop_thread(), self.back_button.on_click()))
         self.back_button.pack(pady=(15, 0))
+
 
     def start_client(self, host, port, message):
         # set the message globally to check later
@@ -101,26 +115,17 @@ class EchoClientTestPanel(Frame):
     def display_received_data(self, data_str):
         """Method to display received data on the panel."""
         # checking if returned data is the same
-        match = "(not match)"
-        if(data_str == self.message):
-            match = "(match)"
-            
+        is_match = (data_str == self.message)
+        match_text = "(match)" if is_match else "(not match)"
+        match_tag = "match" if is_match else "not_match"
+
         self.data_display.config(state="normal")
-        self.data_display.insert(END, f"{ctime() + " " + match +":" +  data_str}\n")
+        self.data_display.insert(END, f"{ctime()} ")
+        self.data_display.insert(END, match_text, match_tag)
+        self.data_display.insert(END, f": {data_str}\n")
         self.data_display.see(END)
         self.data_display.config(state="disabled")
 
-    def on_back(self):
-        """Cancels timer and switches view back to EchoPanel."""
-        try:
-            logger.info("Returning to EchoPanel")
-            self.stop_thread()
-            from .EchoPanel import EchoPanel
-            root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(EchoPanel)
-        except Exception as error:
-            logger.error(f"Error navigating back to EchoPanel: {error}", exc_info=True)
 
     def destroy(self):
         """Cleanup timer when widget is destroyed."""

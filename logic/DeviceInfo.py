@@ -1,14 +1,21 @@
 from socket import gethostname                                                                                                                                                 
 import netifaces                                                                                                                                                               
+from logger import get_logger
+
+logger = get_logger("DeviceInfo")
 
 class DeviceInfo:
     def __init__(self):
-        # get the current hostname
-        self.hostname = gethostname()
-        # Get network interfaces
-        _interfaces = netifaces.interfaces()
-        # Put each in new line for better look
-        self.networkInterfaces = "\n".join(_interfaces)
+        try:
+            # get the current hostname
+            self.hostname = gethostname()
+            # Get network interfaces
+            _interfaces = netifaces.interfaces()
+            # Put each in new line for better look
+            self.networkInterfaces = "\n".join(_interfaces)
+        except Exception as e:
+            logger.error("Error while fetching device information: %s", e)
+            raise
     
         # All IPv4 addresses from all interfaces
         # Getting ip addresses from interfaces is faster than using getbyhostname

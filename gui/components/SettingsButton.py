@@ -1,5 +1,6 @@
 from tkinter import Button
 from logger import get_logger
+import logic.WindowHandler as WindowHandler
 
 logger = get_logger("SettingsButton")
 
@@ -13,7 +14,6 @@ class SettingsButton(Button):
         try:
             from ..panels.SettingsPanel import SettingsPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(SettingsPanel)
+            WindowHandler.switch_panel(root, SettingsPanel)
         except Exception as error:
             logger.error(f"Error opening SettingsPanel: {error}", exc_info=True)

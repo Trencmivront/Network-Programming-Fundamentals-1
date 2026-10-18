@@ -3,6 +3,7 @@ python3-tk (tkinter UI library)
 socket
 netifaces (displaying network interfaces)
 ntplib (SNTP time module to retrieve remote time information)
+json (saving settings file)
 
 ## To run the application
 From the folder of the application, run:

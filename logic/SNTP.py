@@ -13,6 +13,6 @@ class SNTP:
             response = ntp_client.request(ntpURL)
         except NTPException as e:
             logger.error(e)
-            return
+            raise
         self.timestamp = ctime(response.tx_time)
         logger.info("Time taken from %s server : %s", ntpURL, self.timestamp)

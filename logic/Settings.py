@@ -16,6 +16,11 @@ echoServerBacklog = 1
 echoServerPort = 0
 echoTestTimeout = 0.0
 echoClientPayloadCount = 0
+echoServerBlocking = False
+
+chatServerHostname = "localhost"
+chatServerPort = 8080
+chatServerBacklog = 5
 
 ntpURL = ''
 
@@ -24,7 +29,7 @@ debuggingEnabled = False
 
 def cache():
     """Reads settings from settings.json and caches them into global variables."""
-    global echoServerHost, echoServerPort, echoServerBacklog, echoServerDataPayload, echoTestTimeout, ntpURL, echoClientPayloadCount, loggingEnabled, debuggingEnabled
+    global echoServerHost, echoServerPort, echoServerBacklog, echoServerDataPayload, echoTestTimeout, ntpURL, echoClientPayloadCount, loggingEnabled, debuggingEnabled, chatServerHostname, chatServerPort, chatServerBacklog, echoServerBlocking
     try:
         # load file as object
         SETTINGS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "settings.json")
@@ -47,9 +52,19 @@ def cache():
             # Repeat count of which how many payload client will send before closing. Set this value to -1 for infinite.
             # The default is 1, and 0 makes server close immidiately
             echoClientPayloadCount = settings.get("echoClientPayloadCount", 1)
-            # Logging and debugging flags (no logic assigned yet)
+            # Whether the echo server should use blocking sockets. Default is False.
+            echoServerBlocking = settings.get("echoServerBlocking", False)
+            # Chat server hostname. Default is 'localhost'
+            chatServerHostname = settings.get("chatServerHostname", "localhost")
+            # Chat server port. Default is 8080
+            chatServerPort = settings.get("chatServerPort", 8080)
+            # Chat server backlog (max queued connections). Default is 5
+            chatServerBacklog = settings.get("chatServerBacklog", 5)
+            # Logging and debugging flags
             loggingEnabled = settings.get("logging", True)
             debuggingEnabled = settings.get("debugging", False)
+            import logger as log_module
+            log_module.set_file_logging(loggingEnabled)
     except Exception as error:
         print(f"Error loading settings: {error}")
 
@@ -64,6 +79,10 @@ def init():
         echo_test_timeout=3.0,
         ntp_url="pool.ntp.org",
         echo_client_payload_count=1,
+        echo_server_blocking=False,
+        chat_server_hostname="localhost",
+        chat_server_port=8080,
+        chat_server_backlog=5,
         logging_enabled=True,
         debugging_enabled=False,
     )
@@ -78,12 +97,16 @@ def set(
     echo_test_timeout=None,
     ntp_url=None,
     echo_client_payload_count=None,
+    echo_server_blocking=None,
+    chat_server_hostname=None,
+    chat_server_port=None,
+    chat_server_backlog=None,
     logging_enabled=None,
     debugging_enabled=None,
     save_to_file=True,
 ):
     """Sets configuration values with strict type checking and updates settings.json."""
-    global echoServerHost, echoServerPort, echoServerBacklog, echoServerDataPayload, echoTestTimeout, ntpURL, echoClientPayloadCount, loggingEnabled, debuggingEnabled
+    global echoServerHost, echoServerPort, echoServerBacklog, echoServerDataPayload, echoTestTimeout, ntpURL, echoClientPayloadCount, loggingEnabled, debuggingEnabled, chatServerHostname, chatServerPort, chatServerBacklog, echoServerBlocking
 
     if echo_server_host is not None:
         if not isinstance(echo_server_host, str):
@@ -130,10 +153,40 @@ def set(
             logger.warning("Expected payload count is 0, echo test server won't run. If this was a mistake, check application settings.")
         echoClientPayloadCount = echo_client_payload_count
 
-    # logging and debugging: no logic assigned yet, just persist the values
+    if echo_server_blocking is not None:
+        if not isinstance(echo_server_blocking, bool):
+            raise TypeError(f"echo_server_blocking must be a bool, got {type(echo_server_blocking).__name__}")
+        echoServerBlocking = echo_server_blocking
+
+    if chat_server_hostname is not None:
+        if not isinstance(chat_server_hostname, str):
+            raise TypeError(f"chat_server_hostname must be a str, got {type(chat_server_hostname).__name__}")
+        chatServerHostname = chat_server_hostname
+
+    if chat_server_port is not None:
+        if not isinstance(chat_server_port, int) or isinstance(chat_server_port, bool):
+            raise TypeError(f"chat_server_port must be an int, got {type(chat_server_port).__name__}")
+        if not (1 <= chat_server_port <= 65535):
+            raise ValueError(f"chat_server_port must be between 1 and 65535, got {chat_server_port}")
+        chatServerPort = chat_server_port
+
+    if chat_server_backlog is not None:
+        if not isinstance(chat_server_backlog, int) or isinstance(chat_server_backlog, bool):
+            raise TypeError(f"chat_server_backlog must be an int, got {type(chat_server_backlog).__name__}")
+        if chat_server_backlog < 1:
+            raise ValueError(f"chat_server_backlog must be >= 1, got {chat_server_backlog}")
+        chatServerBacklog = chat_server_backlog
+
+    # logging and debugging
     if logging_enabled is not None:
+        if not isinstance(logging_enabled, bool):
+            raise TypeError(f"logging_enabled must be a bool, got {type(logging_enabled).__name__}")
         loggingEnabled = logging_enabled
+        import logger as log_module
+        log_module.set_file_logging(loggingEnabled)
     if debugging_enabled is not None:
+        if not isinstance(debugging_enabled, bool):
+            raise TypeError(f"debugging_enabled must be a bool, got {type(debugging_enabled).__name__}")
         debuggingEnabled = debugging_enabled
 
     # Persist updated values to settings.json
@@ -147,6 +200,10 @@ def set(
                 "echoTestTimeout": echoTestTimeout,
                 "ntpURL": ntpURL,
                 "echoClientPayloadCount": echoClientPayloadCount,
+                "chatServerHostname": chatServerHostname,
+                "chatServerPort": chatServerPort,
+                "chatServerBacklog": chatServerBacklog,
+                "echoServerBlocking": echoServerBlocking,
                 "logging": loggingEnabled,
                 "debugging": debuggingEnabled,
             }

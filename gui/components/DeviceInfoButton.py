@@ -1,5 +1,6 @@
 from tkinter import Button
 from logger import get_logger
+import logic.WindowHandler as WindowHandler
 
 logger = get_logger("DeviceInfoButton")
 
@@ -19,8 +20,7 @@ class DeviceInfoButton(Button):
             logger.info("Loading")
             from ..panels.InfoPanel import InfoPanel
             root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(InfoPanel)
-                logger.info("Loaded")
+            WindowHandler.switch_panel(root, InfoPanel)
+            logger.info("Loaded")
         except Exception as error:
             logger.error(f"Error opening InfoPanel: {error}", exc_info=True)

@@ -1,7 +1,8 @@
-from tkinter import Frame, Label, Button, Text, Scrollbar, END
+from tkinter import Frame, Label, Text, Scrollbar, END
 from logger import get_logger
 from time import ctime
-from logic.EchoServerTest import echo_server
+from logic.EchoServerTest import EchoServerTest as EST
+from ..components.BackButton import BackButton
 import threading
 
 logger = get_logger("EchoServerTestPanel")
@@ -16,8 +17,10 @@ class EchoServerTestPanel(Frame):
         self._timer_job = None
         # This boolean condition used in echo_server function to check when to stop the function
         self.isThreadRunning = False
+        # Initialize our service class
+        est = EST()
         # Initializing the backgroun daemon for running server
-        self.thread = threading.Thread(target=echo_server, args=(self.on_data, self.is_thread_running), daemon=True)
+        self.thread = threading.Thread(target=est.echo_server, args=(self.on_data, self.is_thread_running, self.stop_timer), daemon=True)
 
         # Title
         self.title_label = Label(self, text="Echo Server Test", font=("Arial", 18, "bold"))
@@ -53,8 +56,10 @@ class EchoServerTestPanel(Frame):
         self.data_display.pack(side="left", fill="both", expand=True)
         self.scrollbar.config(command=self.data_display.yview)
 
-        # Back button to return specifically to EchoPanel
-        self.back_button = Button(self, text="Back", width=15, command=self.on_back)
+        # Back button — uses the shared BackButton; stop_timer() runs before
+        # on_click() so the server thread is cleaned up before navigating away.
+        self.back_button = BackButton(self)
+        self.back_button.config(command=lambda: (self.stop_timer(), self.back_button.on_click()))
         self.back_button.pack(pady=(15, 0))
 
         # Start the running counter
@@ -73,8 +78,7 @@ class EchoServerTestPanel(Frame):
             self._update_timer()
 
     def stop_timer(self):
-        """Stops the uptime counter and cancels any scheduled after callbacks."""
-        """ Also sets the thread state to stopped"""
+        """Stops the uptime counter, cancels scheduled callbacks, and stops the thread."""
         self.timer_running = False
         self.isThreadRunning = False
         if self._timer_job:
@@ -95,21 +99,9 @@ class EchoServerTestPanel(Frame):
     def display_received_data(self, data_str):
         """Method to display received data on the panel."""
         self.data_display.config(state="normal")
-        self.data_display.insert(END, f"{ctime() + " :" +  data_str}\n")
+        self.data_display.insert(END, f"{ctime()} : {data_str}\n")
         self.data_display.see(END)
         self.data_display.config(state="disabled")
-
-    def on_back(self):
-        """Cancels timer and switches view back to EchoPanel."""
-        try:
-            logger.info("EchoServerTestPanel: Back button clicked - returning to EchoPanel")
-            self.stop_timer()
-            from .EchoPanel import EchoPanel
-            root = self.winfo_toplevel()
-            if hasattr(root, "switch_panel"):
-                root.switch_panel(EchoPanel)
-        except Exception as error:
-            logger.error(f"Error navigating back to EchoPanel: {error}", exc_info=True)
 
     def destroy(self):
         """Cleanup timer when widget is destroyed."""
