@@ -17,9 +17,10 @@ logger = get_logger("ChatServer")
 # Same logic from logger.py
 # They won't change, so it is okay to put them in python cache bs
 # Root folder of project
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Chats are located right below the root folder
 CHAT_DIR = os.path.join(BASE_DIR, "chats")
+
 
 # Ensure the chats directory exists
 os.makedirs(CHAT_DIR, exist_ok=True)
@@ -147,7 +148,7 @@ class ChatServer:
         self.running = True
         # Create a file writer which will write chats to file named date of current day.
         # it will only support append operation
-        self.writer = open(CHAT_DIR + str(date.today()), "a")
+        self.writer = open(os.path.join(CHAT_DIR , str(date.today()) + ".txt"), "a")
         while self.running:
             try:
                 # Use a timeout (0.5s) and do not poll self.outputs for writeable to prevent 100% CPU spin

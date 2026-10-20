@@ -4,9 +4,23 @@ import sys
 import pickle
 import struct
 import threading
+import os
+from datetime import date
+from time import ctime
 from logger import get_logger
 
 logger = get_logger("ChatClient")
+
+# Same logic from logger.py
+# They won't change, so it is okay to put them in python cache bs
+# Root folder of project
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Chats are located right below the root folder
+CHAT_DIR = os.path.join(BASE_DIR, "chats")
+
+
+# Ensure the chats directory exists
+os.makedirs(CHAT_DIR, exist_ok=True)
 
 # Some utilities (assumed to be used by both server and client)
 # I wil keep these functions as are
@@ -37,6 +51,7 @@ class ChatClient:
         self.port = port
 
         self.action = None # Set action before so no error comes out
+        self.writer = None # initialized at run() function
         # Initial prompt
         self.prompt = '[' + '@'.join((name, socket.gethostname().split('.')[0])) + ']> '
         # Connect to server at port
@@ -55,9 +70,25 @@ class ChatClient:
             logger.error("Failed to connect to chat server @ port %s: %s", self.port, e)
             raise
 
+    def chat_write(self, text : str):
+        """Writes the sent and received chat messages into a file.
+        
+        The file name will be the date of which messages are written. dd/mm/yyyy
+        """
+        # retrieve the file writer if created
+        if self.writer:
+            # add a new line after each text
+            # I don't add them new line since each message already has them
+            self.writer.write(text)
+            self.writer.flush()
+
     def message(self, text: str):
         """Sends a string message to the server."""
-        if text and self.connected:
+        if not text:
+            return
+        msg = f"\n#[{ctime()}][{self.name}]>>{text}"
+        self.chat_write(msg)
+        if self.connected:
             try:
                 send(self.sock, text)
             except Exception as e:
@@ -71,6 +102,9 @@ class ChatClient:
 
     def run(self):
         """Chat client main loop: receives messages from the server."""
+        # Create a file writer which will write chats to file named date of current day.
+        # it will only support append operation
+        self.writer = open(os.path.join(CHAT_DIR , str(date.today()) + ".txt"), "a")
         try:
             while self.connected:
                 data = receive(self.sock)
@@ -79,6 +113,7 @@ class ChatClient:
                     self.connected = False
                     break
                 else:
+                    self.chat_write(data)
                     if self.action is not None:
                         self.action(data)
                     logger.info("Received data: %s", data)
@@ -91,6 +126,11 @@ class ChatClient:
                 self.sock.close()
             except Exception:
                 pass
+            try:
+                if self.writer:
+                    self.writer.close()
+            except Exception:
+                pass
 
     def close(self):
         """Closes the client connection and releases the socket."""
@@ -101,6 +141,11 @@ class ChatClient:
             pass
         try:
             self.sock.close()
+        except Exception:
+            pass
+        try:
+            if self.writer:
+                self.writer.close()
         except Exception:
             pass
 

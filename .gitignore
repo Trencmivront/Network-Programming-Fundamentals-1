@@ -2,3 +2,7 @@
 __pycache__/
 # log files
 logs/
+# chat folder
+chats/
+# settings file (will be generated if missing)
+settings.json
