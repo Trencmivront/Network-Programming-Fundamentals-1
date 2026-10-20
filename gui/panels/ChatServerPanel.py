@@ -1,14 +1,25 @@
 from tkinter import Frame, Label, Button, Text, Scrollbar, Entry, StringVar, END
 from ..components.BackButton import BackButton
+from logic.ChatServer import ChatServer as CS
 from logger import get_logger
 
 logger = get_logger("ChatServerPanel")
-
 
 class ChatServerPanel(Frame):
     def __init__(self, root):
         super().__init__(root, padx=20, pady=20)
         logger.info("Initializing ChatServerPanel")
+
+        self.server = None # error checking for later
+
+        try:
+            self.server = CS()
+        except Exception:
+            self.destroy()
+            raise
+
+        self.server.on_receive(self.display_message)
+        self.server.start()
 
         # Title
         self.title_label = Label(self, text="Chat Server", font=("Arial", 18, "bold"))
@@ -17,9 +28,9 @@ class ChatServerPanel(Frame):
         # Status label
         self.status_label = Label(
             self,
-            text="Server Status: Ready (Logic to be implemented)",
+            text=f"Server Status: Listening on {self.server.host}:{self.server.port}",
             font=("Arial", 11),
-            fg="gray",
+            fg="#2b6cb0",
         )
         self.status_label.pack(pady=(0, 10))
 
@@ -48,6 +59,7 @@ class ChatServerPanel(Frame):
         self.message_var = StringVar()
         self.message_entry = Entry(self.input_frame, textvariable=self.message_var, font=("Arial", 12))
         self.message_entry.pack(side="left", fill="x", expand=True, padx=(0, 5))
+        self.message_entry.bind("<Return>", lambda event: self.send_message())
 
         self.send_button = Button(
             self.input_frame,
@@ -62,21 +74,35 @@ class ChatServerPanel(Frame):
         self.back_button = BackButton(self)
         self.back_button.pack(pady=(15, 0))
 
+    def destroy(self):
+        if self.server is not None:
+            self.server.close()
+        return super().destroy()
+
     def send_message(self):
-        """Sends a message from server. Logic to be added later."""
+        """Sends a message from server to all connected clients."""
         message = self.message_var.get().strip()
         if not message:
             return
         logger.info("Server message to send: %s", message)
-        # TODO: Implement server send logic
-        self.display_message(f"Server: {message}")
+
+        if self.server is not None:
+            msg = self.server.message(message)
+
+        if msg:
+            self.display_message(f"{msg}")
         self.message_var.set("")
 
     def display_message(self, message_str):
-        """Displays a message in the chat window."""
-        self.chat_display.config(state="normal")
-        self.chat_display.insert(END, f"{message_str}\n")
-        self.chat_display.see(END)
-        self.chat_display.config(state="disabled")
+        """Displays a message in the chat window (thread-safe)."""
+        def _insert():
+            try:
+                if self.winfo_exists():
+                    self.chat_display.config(state="normal")
+                    self.chat_display.insert(END, f"{message_str}\n")
+                    self.chat_display.see(END)
+                    self.chat_display.config(state="disabled")
+            except Exception:
+                pass
 
-    # TODO: Add server networking logic (bind, listen, accept, receive) later
+        self.after(0, _insert)

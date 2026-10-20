@@ -187,7 +187,17 @@ def set(
     if debugging_enabled is not None:
         if not isinstance(debugging_enabled, bool):
             raise TypeError(f"debugging_enabled must be a bool, got {type(debugging_enabled).__name__}")
+        
         debuggingEnabled = debugging_enabled
+
+        # Display or destroy the debugging window if GUI is active
+        from gui.frames.Main import Main
+        instance = Main.get_instance()
+        if instance is not None:
+            if debuggingEnabled:
+                instance.create_debug_win()
+            else:
+                instance.destroy_debug_win()
 
     # Persist updated values to settings.json
     if save_to_file:

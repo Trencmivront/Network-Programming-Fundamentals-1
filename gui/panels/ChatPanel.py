@@ -46,9 +46,9 @@ class ChatPanel(Frame):
     def open_client_panel(self):
         try:
             logger.info("Opening chat client connect panel.")
-            from .ChatClientConnect import ChatClientConnect
+            from .ChatClientConnectPanel import ChatClientConnectPanel
             root = self.winfo_toplevel()
-            switch_panel(root, ChatClientConnect)
+            switch_panel(root, ChatClientConnectPanel)
         except Exception as error:
             logger.error(f"Error opening ChatClientConnect: {error}", exc_info=True)
 

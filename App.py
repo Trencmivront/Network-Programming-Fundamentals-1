@@ -6,3 +6,4 @@ logger.info("Application starting...")
 
 # Show the main frame
 main = Main()
+main.mainloop()

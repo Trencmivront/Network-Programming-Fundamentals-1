@@ -9,6 +9,7 @@ from logger import get_logger
 logger = get_logger("ChatClient")
 
 # Some utilities (assumed to be used by both server and client)
+# I wil keep these functions as are
 def send(channel, *args):
     buffer = pickle.dumps(args)
     value = socket.htonl(len(buffer))
@@ -34,6 +35,8 @@ class ChatClient:
         self.connected = False
         self.host = host
         self.port = port
+
+        self.action = None # Set action before so no error comes out
         # Initial prompt
         self.prompt = '[' + '@'.join((name, socket.gethostname().split('.')[0])) + ']> '
         # Connect to server at port
@@ -50,23 +53,25 @@ class ChatClient:
             self.prompt = '[' + '@'.join((self.name, addr)) + ']> '
         except socket.error as e:
             logger.error("Failed to connect to chat server @ port %s: %s", self.port, e)
-            sys.exit(1)
+            raise
+
+    def message(self, text: str):
+        """Sends a string message to the server."""
+        if text and self.connected:
+            try:
+                send(self.sock, text)
+            except Exception as e:
+                logger.error("Failed to send message: %s", e)
+
+    def start(self):
+        """Starts the receive loop in a background daemon thread."""
+        thread = threading.Thread(target=self.run, daemon=True)
+        thread.start()
+        return thread
 
     def run(self):
-        """Chat client main loop using a separate input thread."""
-        def input_thread():
-            # This thread handles user input from the console.
-            while self.connected:
-                line = sys.stdin.readline().strip()
-                if line:
-                    send(self.sock, line)
-
-        # Start the input thread
-        t = threading.Thread(target=input_thread, daemon=True)
-        t.start()
-
+        """Chat client main loop: receives messages from the server."""
         try:
-            # Main thread: receive messages from the server.
             while self.connected:
                 data = receive(self.sock)
                 if not data:
@@ -74,12 +79,32 @@ class ChatClient:
                     self.connected = False
                     break
                 else:
-                    # Log received messages
-                    logger.info("%s", data)
-                    # Optionally, reprint the prompt:
-                    sys.stdout.write(self.prompt)
-                    sys.stdout.flush()
-        except KeyboardInterrupt:
-            logger.info("Client interrupted.")
+                    if self.action is not None:
+                        self.action(data)
+                    logger.info("Received data: %s", data)
+        except Exception as e:
+            if self.connected:
+                logger.error("Client receive error: %s", e)
         finally:
+            self.connected = False
+            try:
+                self.sock.close()
+            except Exception:
+                pass
+
+    def close(self):
+        """Closes the client connection and releases the socket."""
+        self.connected = False
+        try:
+            self.sock.shutdown(socket.SHUT_RDWR)
+        except Exception:
+            pass
+        try:
             self.sock.close()
+        except Exception:
+            pass
+
+    def on_receive(self, action=None):
+        """Set an action to run when a message is received."""
+        if action is not None:
+            self.action = action

@@ -1,16 +1,15 @@
 from tkinter import Frame, Label, Button, Entry, StringVar, messagebox
-import socket
 from ..components.BackButton import BackButton
 from logger import get_logger
 from logic.WindowHandler import switch_panel
 
-logger = get_logger("ChatClientConnect")
+logger = get_logger("ChatClientConnectPanel")
 
 
-class ChatClientConnect(Frame):
+class ChatClientConnectPanel(Frame):
     def __init__(self, root):
         super().__init__(root, padx=20, pady=20)
-        logger.info("Initializing ChatClientConnect panel")
+        logger.info("Initializing ChatClientCChatClientConnectPanelonnect panel")
 
         # Title
         self.title_label = Label(self, text="Chat Client Connect", font=("Arial", 18, "bold"))
@@ -22,6 +21,14 @@ class ChatClientConnect(Frame):
 
         self.hostname_var = StringVar(value="localhost")
         self.port_var = StringVar(value="8080")
+        self.username_var = StringVar(value="Client")
+
+        # Username entry
+        self.username_row = Frame(self.inputs_frame)
+        self.username_row.pack(fill="x", pady=4)
+        Label(self.username_row, text="Username:", font=("Arial", 11, "bold"), width=10, anchor="w").pack(side="left")
+        self.username_entry = Entry(self.inputs_frame, textvariable=self.username_var)
+        self.username_entry.pack(in_=self.username_row, side="left", fill="x", expand=True)
 
         # Hostname entry
         self.hostname_row = Frame(self.inputs_frame)
@@ -57,6 +64,8 @@ class ChatClientConnect(Frame):
 
     def start_chat(self):
         """Validates connection inputs, checks client connection, logs errors, and transitions to ChatClientPanel."""
+
+        username = self.username_entry.get().strip()
         host = self.hostname_entry.get().strip()
         port_raw = self.port_entry.get().strip()
 
@@ -77,24 +86,10 @@ class ChatClientConnect(Frame):
             messagebox.showerror("Invalid Input", err_msg)
             return
 
-        # Check for errors during client connection and log them
-        logger.info("Attempting connection to chat server at %s:%s", host, port)
-        try:
-            with socket.create_connection((host, port), timeout=3.0):
-                logger.info("Successfully connected to chat server at %s:%s", host, port)
-        except Exception as error:
-            logger.error("Client connection error while connecting to %s:%s: %s", host, port, error)
-            proceed = messagebox.askyesno(
-                "Connection Warning",
-                f"Could not connect to {host}:{port}:\n{error}\n\nDo you want to proceed to the Chat Client panel anyway?",
-            )
-            if not proceed:
-                return
-
-        # Transition to ChatClientPanel
+        # Open ChatClientPanel
         try:
             from .ChatClientPanel import ChatClientPanel
             root = self.winfo_toplevel()
-            switch_panel(root, ChatClientPanel, host=host, port=port)
+            switch_panel(root, ChatClientPanel, username=username, host=host, port=port)
         except Exception as error:
             logger.error("Error opening ChatClientPanel: %s", error, exc_info=True)
