@@ -5,11 +5,11 @@
     "echoServerDataPayload": 2048,
     "echoTestTimeout": 3.0,
     "ntpURL": "pool.ntp.org",
-    "echoClientPayloadCount": 1,
+    "echoClientPayloadCount": 3,
     "chatServerHostname": "localhost",
     "chatServerPort": 8080,
     "chatServerBacklog": 5,
     "echoServerBlocking": false,
     "logging": true,
-    "debugging": false
+    "debugging": true
 }
